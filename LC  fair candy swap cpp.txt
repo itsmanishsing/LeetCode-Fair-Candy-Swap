@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> fairCandySwap(vector<int>& aliceSizes, vector<int>& bobSizes) {
+        
+        int a = 0, b = 0;
+        for(int X: aliceSizes)
+            a+=X;
+        for(int X: bobSizes)
+            b+=X;
+        vector<int>ans;
+        
+        int n = aliceSizes.size(), m = bobSizes.size();
+        
+        for(int i=n-1;i>=0;i--)
+        {
+          for(int j=m-1;j>=0;j--)
+          {
+              int diff = aliceSizes[i]-bobSizes[j];
+              if(a-diff == b+diff)
+              {
+                  ans.push_back(aliceSizes[i]);
+                  ans.push_back(bobSizes[j]);
+                  return ans;
+                  
+              }
+              
+              
+          }
+            
+            
+            
+            
+        }
+        return ans;
+        
+    }
+};
